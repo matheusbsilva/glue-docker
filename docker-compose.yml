@@ -1,0 +1,19 @@
+version: '3.7'
+
+services:
+  glue:
+    build: .
+    volumes:
+      - ~/.aws:/home/glue_user/.aws:ro
+      - .:/home/glue_user/workspace/jupyter_workspace
+      - ./.jupyter:/home/glue_user/.jupyter
+    environment:
+      DISABLE_SSL: true
+    env_file:
+      - .env
+    ports:
+      - 4040:4040
+      - 18080:18080
+      - 8998:8998
+      - 8888:8888
+    command: /home/glue_user/jupyter/jupyter_start.sh
