@@ -9,8 +9,6 @@ services:
       - ./.jupyter:/home/glue_user/.jupyter
     environment:
       DISABLE_SSL: true
-    env_file:
-      - .env
     ports:
       - 4040:4040
       - 18080:18080
